@@ -1,1 +1,4 @@
-{"entries": [{"entry": [{"name": "Adam"}, {"month": "December"}, {"year": "2018"}]} , {"entry": [{"name": "Daniel"}, {"month": "December"}]}] }
+{"entries": [
+    {"entry": [{"name": "Adam"}, {"month": "December"}, {"year": "2018"}]} , 
+    {"entry": [{"name": "Daniel"}, {"month": "December"}]}] 
+}
