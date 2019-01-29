@@ -1,4 +1,40 @@
-{"entries": [
-    {"entry": [{"name": "Adam"}, {"month": "December"}, {"year": "2018"}]} , 
-    {"entry": [{"name": "Daniel"}, {"month": "December"}]}] 
+{
+  "data": [
+    {
+      "date_entry": [
+        {
+          "month": "December"
+        },
+        {
+          "year": "2018"
+        },
+        {
+          "entry:": [
+            {
+              "name": "John"
+            },
+            {
+              "balance": 0
+            },
+            {
+              "earnings": 0
+            }
+          ]
+        },
+        {
+          "entry:": [
+            {
+              "name": "Jane"
+            },
+            {
+              "balance": 0
+            },
+            {
+              "earnings": 0
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
