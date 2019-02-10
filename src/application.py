@@ -5,19 +5,39 @@ import dash_html_components as html
 import pandas as pd
 import numpy as np
 
-raw_data = pd.read_csv('../data/actual-data.csv')
+# TODO:
+# * Add radio button group to manage what is shown
+# * Add future prediction given perfect savings (6 months)
+# * Spending plot should probably be scatter, not bar
+#
+
+MONTH = 'Month'
+YEAR = 'Year'
+NAME = 'Name'
+BALANCE = 'Balance'
+EARNINGS = 'Earnings'
+INTEREST = 'Interest'
 plottable_data = {}
 plot_months = ['Jan', 'Feb', 'Mar']
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 def get_plottable_data():
+
+    raw_data = pd.read_csv('../data/actual-data.csv')
     for kiddo in np.unique(raw_data.Name):
+        print('Not really processing data yet for ' + kiddo )
         # TODO processing here for spending column
         # TODO processing here for future month predictions, out 6 months
-        print('Not really processing data yet for ' + kiddo )
+        months = raw_data[raw_data.Name == kiddo].Month
+        # print(raw_data[raw_data.Name == kiddo].Month)
+        for month in np.unique(months):
+            # This is ordered according to file entries, not alphabetical
+            balance = raw_data[(raw_data.Name==kiddo) & (raw_data.Month==month)].Balance
+            print(kiddo + ', ' + month + ': ') # + str(balance))
 
-    return plottable_data
+
+    return raw_data
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
@@ -50,7 +70,7 @@ app.layout = html.Div(children=[
 )
 def update_output_div(selected_name):
     print('Received name: ' + str(selected_name))
-    named_data = raw_data[raw_data.Name==selected_name]
+    named_data = plottable_data[plottable_data.Name==selected_name]
     return {
             'data': [
                 {'x': named_data.Month, 'y': named_data.Balance, 'type': 'bar', 'name': 'Adam'}
@@ -62,5 +82,5 @@ def update_output_div(selected_name):
 
 
 if __name__ == '__main__':
-    data = get_plottable_data()
-    app.run_server(debug=True)  # find it on http://127.0.0.1:8050/
+    plottable_data = get_plottable_data()
+    app.run_server(debug=True, host='0.0.0.0', port=8050)  # find it on http://127.0.0.1:8050/
