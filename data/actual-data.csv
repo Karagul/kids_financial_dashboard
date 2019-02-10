@@ -1,5 +1,9 @@
 ﻿Name,Month,Year,Balance,Earnings,Interest
-Adam,January,2019,87.18,10,4.36
-Daniel,January,2019,126.16,10,3.78
-Anna,January,2019,44.19,5,2.21
-Peter,January,2019,55.27,5,2.76
+Adam,December,2018,87.18,10,4.36
+Daniel,December,2018,126.16,10,3.78
+Anna,December,2018,44.19,5,2.21
+Peter,December,2018,55.27,5,2.76
+Adam,January,2019,78.53,10,4.05
+Daniel,January,2019,52.16,10,2.61
+Anna,January,2019,32.37,5,1.62
+Peter,January,2019,12.23,5,0.61
